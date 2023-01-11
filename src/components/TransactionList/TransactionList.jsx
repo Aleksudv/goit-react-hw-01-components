@@ -1,22 +1,36 @@
 import PropTypes from 'prop-types';
-import { Transactions } from "components/Transactions/Transactions";
+import css from './TransactionList.module.css';
 
 
+export function TransactionList({ transactions }) {
+  return (
+    <table className={css.transactionHistory}>
+      <thead className={css.tableThead}>
+        <tr>
+          <th className={css.tableTh}>TYPE</th>
+          <th className={css.tableTh}>AMOUNT</th>
+          <th className={css.tableTh}>CURRENCY</th>
+        </tr>
+      </thead>
 
-export const TransactionList = ({transactions}) => {
-    return (
-    <div>
-            {transactions.map(transaction => (
-            <Transactions key={transaction.id} transaction={transaction}/>
+      <tbody className={css.tableBody}>
+        {transactions.map(({ id, type, amount, currency }) => (
+          <tr key={id} className={css.tableTr}>
+            <td className={css.tableTd}>
+              {type.charAt(0).toUpperCase() + type.slice(1)}
+            </td>
+            <td className={css.tableTd}>{amount}</td>
+            <td className={css.tableTd}>{currency}</td>
+          </tr>
         ))}
-    </div>
-    )
-};
-
-
+      </tbody>
+    </table>
+  );
+}
 
 TransactionList.propTypes = {
-    transactions: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired
-    })).isRequired,
+  id: PropTypes.string,
+  type: PropTypes.string,
+  amount: PropTypes.string,
+  currency: PropTypes.string,
 };

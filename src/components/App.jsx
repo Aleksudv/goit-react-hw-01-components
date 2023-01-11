@@ -30,19 +30,10 @@ export const App = () => {
         views={user.stats.views}
         likes={user.stats.likes}/>
       
-      <StatisticsList statistics={statistics} />
+      <StatisticsList        
+        statistics={statistics} title="Upload stats"/>
       <FriendsList friends={friends} />
       <TransactionList transactions={transactions} />
     </div>
   );
 };
-
-
-{/* <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        followers={user.stats.followers}
-        views={user.stats.views}
-        likes={user.stats.likes} /> */}

@@ -1,0 +1,16 @@
+.item {
+  width: 100%;
+  border: 2px solid darkgray;
+  padding: 5px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.percentage {
+  font-size: 22px;
+  margin: 5px;
+}
